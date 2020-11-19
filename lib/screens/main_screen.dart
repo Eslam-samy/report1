@@ -40,7 +40,7 @@ class _mainScreenState extends State<mainScreen> {
         showUnselectedLabels: true,
         selectedLabelStyle: TextStyle(color: Colors.purple, fontSize: 12),
         unselectedIconTheme: IconThemeData(size: 25, color: Colors.black54),
-        selectedIconTheme: IconThemeData(size: 25, color: Color(0xFFED1867)),
+        selectedIconTheme: IconThemeData(size: 25, color: Color.fromRGBO(241, 96, 36, 1)),
         unselectedLabelStyle: TextStyle(color: Colors.black54, fontSize: 12),
         items: <BottomNavigationBarItem>[
 
@@ -50,7 +50,7 @@ class _mainScreenState extends State<mainScreen> {
               size: 20,
             ),
             title: Text(
-              'Hello',
+              'Hello',style: TextStyle(color: Color.fromRGBO(241, 96, 36, 1)),
             ),
           ),
           BottomNavigationBarItem(
@@ -59,7 +59,7 @@ class _mainScreenState extends State<mainScreen> {
               size: 20,
             ),
             title: Text(
-            'hello'
+            'hello',style: TextStyle(color: Color.fromRGBO(241, 96, 36, 1))
             ),
           ),
         ],

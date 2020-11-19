@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:report1/screens/add_new_data_screen.dart';
+import 'package:report1/screens/edit_data_screen.dart';
 import 'package:report1/screens/main_screen.dart';
 import 'package:report1/screens/view_data_screen.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       home: mainScreen(),routes: {
       addNewDataScreen.routeName: (ctx) => addNewDataScreen(),
       viewDataScreen.routeName: (ctx) => viewDataScreen(),
+      editDataScreen.routeName: (ctx) => editDataScreen(),
     },
     );
   }

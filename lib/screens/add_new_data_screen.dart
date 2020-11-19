@@ -22,7 +22,7 @@ class _addNewDataScreenState extends State<addNewDataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: Color.fromRGBO(241, 96, 36, 1),
         title: Text('Report 1 DR/Hisham'),
       ),
       body: Column(

@@ -35,7 +35,14 @@ class MyStorage {
     readContent().then((value) async{
       final file = await localFile;
       return file.writeAsString(
-          '$value ${student.name} ${student.age} ${student.address} ${student.gpa}//');
+          '$value ${student.name} ${student.age} ${student.address} ${student.gpa} //');
+    });
+
+  } Future<File> writeContentAsString(String student) async {
+    readContent().then((value) async{
+      final file = await localFile;
+      return file.writeAsString(
+          student);
     });
 
   }

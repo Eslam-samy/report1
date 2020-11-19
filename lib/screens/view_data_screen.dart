@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:report1/helper/my_storage.dart';
+import 'package:report1/models/student.dart';
+import 'package:report1/widgets/single_data_widget.dart';
 
 class viewDataScreen extends StatefulWidget {
   static const String routeName = '/viewdataScreen';
@@ -14,6 +16,8 @@ class _viewDataScreenState extends State<viewDataScreen> {
   MyStorage storage = new MyStorage();
   String textRead = '';
   List<String> data;
+  List<String> singleDAta;
+  String newData='';
 
   List<String> split(String string, String separator, {int max = 0}) {
     var result = List<String>();
@@ -46,6 +50,7 @@ class _viewDataScreenState extends State<viewDataScreen> {
         textRead = value;
         data = split(textRead, '//');
         print(data.length);
+        print(textRead);
       });
     });
   }
@@ -54,15 +59,22 @@ class _viewDataScreenState extends State<viewDataScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: data == null
-      //check if data ==null or not
+          //check if data ==null or not
           ? Center(child: Text(textRead))
           : ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (ctx, i) =>
-            Center(
-              child: Text(data[i]),
-            ),
-      ),
+              itemCount: data.length,
+              itemBuilder: (ctx, i) => singleDataContaienr(
+                  title: data[i],
+                  context: context,
+                  function: () {
+                    setState(() {
+                      data.removeAt(i);
+                      data.forEach((element) {
+                        newData=newData+'$element //';
+                      });
+                      storage.writeContentAsString(newData);
+                    });
+                  })),
     );
   }
 }
